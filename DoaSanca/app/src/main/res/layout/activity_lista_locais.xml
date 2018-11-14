@@ -11,12 +11,12 @@
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/blue"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             popupTheme="@style/ThemeOverlay.AppCompat.Light"
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:backgroundTint="@color/blue"
+
     >
 
             <LinearLayout
@@ -30,7 +30,7 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_info_black_24dp"
-                        android:background="none"
+                        android:id="@+id/info_button"
                 />
                 <TextView
                         android:layout_width="0dp"
@@ -46,7 +46,9 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_add_circle_black_24dp"
-                        android:background="none"
+                        android:id="@+id/add_button"
+
+
                 />
 
             </LinearLayout>
@@ -60,8 +62,6 @@
           android:layout_height="match_parent"
           android:id="@+id/rvLocais"
           tools:listitem="@layout/activity_item_lista_locais"/>
-
-    />
 
 
 </FrameLayout>
