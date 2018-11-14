@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		tools:context=".ItemListaLocais"
+		android:orientation="horizontal"
+		android:gravity="center"
+		>
+	    <TextView
+			    android:layout_width="0dp"
+			    android:layout_weight="5"
+			    android:layout_height="wrap_content"
+			    android:text="Nome Local"
+			    android:textSize="16sp"
+			    android:layout_marginLeft="16dp"
+
+	    />
+	    <TextView
+			    android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="3"
+			    android:text="200km"
+			    android:textSize="16sp"
+	    />
+	    <ImageButton
+			    android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+			    android:background="none"
+			    android:layout_marginRight="16dp"
+
+
+	    />
+
+</LinearLayout>
