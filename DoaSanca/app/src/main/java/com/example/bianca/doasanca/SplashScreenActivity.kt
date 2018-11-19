@@ -18,7 +18,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             val listaLocais = Intent(this, Lista_locais::class.java)
-            startActivity(Lista_locais)
+            //aqui deve-se iniciar a intent criada
+            //startActivity(Lista_locais)
+            startActivity(listaLocais)
             finish()
         }, 2000)
     }

@@ -32,7 +32,6 @@
 				android:layout_weight="1"
 				android:layout_height="wrap_content"
 				android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-			    android:background="none"
 			    android:layout_marginRight="16dp"
 
 
