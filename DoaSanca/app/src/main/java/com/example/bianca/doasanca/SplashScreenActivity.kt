@@ -14,6 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         GlideApp.with(this)
             .load("https://www.freepik.com/free-vector/illustration-of-helping-hands-support-icons_2606889.htm")
+            .placeholder(R.mipmap.logo)
             .into(imgLogoApp)
 
         Handler().postDelayed({
