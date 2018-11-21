@@ -13,7 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         GlideApp.with(this)
-            .load("https://www.freepik.com/free-vector/illustration-of-helping-hands-support-icons_2606889.htm")
+            .load("https://image.flaticon.com/icons/svg/913/913116.svg")
             .placeholder(R.mipmap.logo)
             .into(imgLogoApp)
 
