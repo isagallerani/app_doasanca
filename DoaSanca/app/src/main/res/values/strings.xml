@@ -2,4 +2,32 @@
     <string name="app_name">DoaSanca</string>
     <string name="buscar">Buscar</string>
     <string name="menulateral">MenuLateral</string>
+
+    <string name="info_devs">Os desenvolvedores são 4 estudantes do terceiro ano do Bacharelado em Ciência da Computação
+        da UFSCar
+    </string>
+
+    <string name="desenvolvedores">Desenvolvedores</string>
+    <string name="info_app">O aplicativo tem como intuito listar os pontos de coleta de doação na cidade de São Carlos.
+        Ele foi desenvolvido na disciplina de Desenvolvimento Mobile 1 na Universidade Federal de São Carlos (UFSCar)
+        com a parceria do professor Cesar Teixeira e a empresa de tecnologia Token Lab
+    </string>
+    <string name="sobre_o_app">Sobre o App</string>
+    <string name="bianca">Bianca Garcia</string>
+    <string name="gabriel">Gabriel Alves</string>
+    <string name="gabi">Gabrieli Santos</string>
+    <string name="isa">Isadora Gallerani</string>
+    <string name="informacoes_pessoais">Informações Pessoais</string>
+    <string name="nome_sobrenome">Nome Sobrenome</string>
+    <string name="todo">TODO</string>
+    <string name="email_pessoal">Email Pessoal</string>
+    <string name="telefone_pessoal">Telefone Pessoal</string>
+    <string name="informacoes_do_local">Informações do Local</string>
+    <string name="nome">Nome</string>
+    <string name="endereco">Endereço</string>
+    <string name="tipo_de_doacao">Tipo de Doação</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="observacoes">Observações</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

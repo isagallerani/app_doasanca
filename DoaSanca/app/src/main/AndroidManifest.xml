@@ -11,10 +11,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Lista_locais"
-                android:label="Locais"
-        >
-
+        <activity
+                android:name=".Lista_locais"
+                android:label="Locais">
         </activity>
         <activity android:name=".ItemListaLocais">
         </activity>
@@ -26,6 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Info">
+        </activity>
+        <activity android:name=".Formulario">
         </activity>
     </application>
 
