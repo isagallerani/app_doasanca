@@ -16,8 +16,6 @@ class Lista_locais : AppCompatActivity() {
 
     private var localList: MutableList<String> = mutableListOf()
 
-    val cadastraLocal = Intent(this, Formulario::class.java)
-    val informacao = Intent (this,Info::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +32,14 @@ class Lista_locais : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val cadastraLocal = Intent(this, Formulario::class.java)
+        val informacao = Intent (this,Info::class.java)
+
         when (item!!.itemId){
             R.id.menuadd -> startActivity(cadastraLocal)
             R.id.menuinfo -> startActivity(informacao)
         }
+
         return super.onOptionsItemSelected(item)
     }
 

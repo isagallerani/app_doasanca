@@ -7,6 +7,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_formulario.*
+import android.widget.Spinner
+
+
 
 class Formulario : AppCompatActivity() {
 
@@ -20,19 +23,12 @@ class Formulario : AppCompatActivity() {
 
         val option = arrayOf("Sangue", "Roupa", "Dinheiro", "Alimento", "Brinquedo", "Móveis") //Pega opcoes do BD
 
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, option)
+
         //Adapter for spinner
-        selectDonation.adapter = ArrayAdapter(this, R.layout.simple_spinner_dropdown_item, option)
+        selectDonation.adapter = adapter
 
-        //item selected listener for spinner
-        selectDonation.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
 
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Toast.makeText(this@Formulario, option[position], Toast.LENGTH_LONG).show()
-            }
-        }
+
     }
-
 }

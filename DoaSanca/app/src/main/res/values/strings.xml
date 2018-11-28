@@ -30,4 +30,12 @@
     <string name="email">Email</string>
     <string name="observacoes">Observações</string>
     <string name="cadastrar">Cadastrar</string>
+
+    <string-array name="planets_array">
+        <item>Alimento</item>
+        <item>Dinheiro</item>
+        <item>Roupa</item>
+        <item>Sangue</item>
+    </string-array>
+
 </resources>
