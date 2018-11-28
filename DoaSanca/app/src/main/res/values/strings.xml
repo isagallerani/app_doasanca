@@ -30,4 +30,10 @@
     <string name="email">Email</string>
     <string name="observacoes">Observações</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="nome_local">Nome Local</string>
+    <string name="_200km">200km</string>
+    <string name="ordenar">Ordenar</string>
+    <string name="categorias">Categorias</string>
+    <string name="informacoes">Informações</string>
+    <string name="adicionar_local">Adicionar Local</string>
 </resources>

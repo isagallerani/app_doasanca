@@ -11,16 +11,16 @@
 
     <item
         android:id="@+id/menuordenar"
-        android:title="Ordenar"/>
+        android:title="@string/ordenar"/>
     <item
         android:id="@+id/menucategorias"
-        android:title="Categorias"/>
+        android:title="@string/categorias"/>
     <item
         android:id="@+id/menuinfo"
-        android:title="Informações"/>
+        android:title="@string/informacoes"/>
     <item
         android:id="@+id/menuadd"
-        android:title="Adicionar local"/>
+        android:title="@string/adicionar_local"/>
 
 
 </menu>
