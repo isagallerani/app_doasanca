@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Formulario"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+<requestFocus/>
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".Formulario"
+        android:paddingBottom="16dp">
+
+
+    <TextView
+            android:text="@string/informacoes_pessoais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_margin="10dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_person"/>
+        <EditText
+                android:id="@+id/edtNomePessoa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/nome_sobrenome"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_mail"/>
+        <EditText
+                android:id="@+id/edtEmailPessoa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/email_pessoal"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:layout_marginEnd="16dp"
+                tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_local_phone"/>
+        <EditText
+                android:id="@+id/edtTelPessoa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/telefone_pessoal"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+            android:text="@string/informacoes_do_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_margin="10dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_home"/>
+        <EditText
+                android:id="@+id/edtNomeLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/nome"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_location_on"/>
+        <EditText
+                android:id="@+id/edtEndLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/endereco"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:layout_marginEnd="16dp"
+                tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+        tools:ignore="ExtraText">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_favorite"/>
+
+        <Spinner
+                android:id="@+id/selectDonation"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="40dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/tipo_de_doacao"
+                android:imeOptions="actionNext"
+                android:layout_marginBottom="10dp"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_local_phone"/>
+        <EditText
+                android:id="@+id/edtTelLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/telefone"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_mail"/>
+        <EditText
+                android:id="@+id/edtEmailLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/email"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:layout_marginEnd="16dp"
+                tools:ignore="LabelFor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/todo"
+                android:src="@mipmap/ic_border_color"/>
+        <EditText
+                android:id="@+id/edtObsLocal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/observacoes"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                tools:ignore="LabelFor"
+                android:layout_marginEnd="16dp" />
+
+    </LinearLayout>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastrar"
+            android:id="@+id/btnCadastrar"
+            android:layout_gravity="right"
+            android:background="@color/green_water"
+            android:textColor="#FFFFFF"
+            tools:ignore="RtlHardcoded" />
+
+</LinearLayout>
+</ScrollView>
