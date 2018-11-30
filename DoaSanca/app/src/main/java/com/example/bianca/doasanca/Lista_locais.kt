@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_lista_locais.*
 class Lista_locais : AppCompatActivity() {
     companion object {
         private const val REQUEST_CADASTRO: Int = 1
+        private const val LISTA = "Lista locais"
     }
 
     private var localList: MutableList<String> = mutableListOf()
@@ -54,6 +55,19 @@ class Lista_locais : AppCompatActivity() {
        }
 
     }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putStringArrayList(LISTA, localList as ArrayList<String>)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null){
+            localList = savedInstanceState.getStringArrayList(LISTA).toMutableList()
+        }
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
 
     override fun onResume() {
         super.onResume()
