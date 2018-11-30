@@ -1,4 +1,5 @@
 package com.example.bianca.doasanca
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,6 +13,9 @@ import kotlinx.android.synthetic.main.activity_lista_locais.*
 
 
 class Lista_locais : AppCompatActivity() {
+    companion object {
+        private const val REQUEST_CADASTRO: Int = 1
+    }
 
     private var localList: MutableList<String> = mutableListOf()
 
@@ -19,8 +23,6 @@ class Lista_locais : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_locais)
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -35,7 +37,7 @@ class Lista_locais : AppCompatActivity() {
         val informacao = Intent (this,Info::class.java)
 
         when (item!!.itemId){
-            R.id.menuadd -> startActivity(cadastraLocal)
+            R.id.menuadd -> startActivityForResult(cadastraLocal, 1)
             R.id.menuinfo -> startActivity(informacao)
         }
 
@@ -43,18 +45,16 @@ class Lista_locais : AppCompatActivity() {
     }
 
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+       if(requestCode== REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
+           val novolocal: String? = data?.getStringExtra(CadastraLocalActivity.NOME_LOCAL)
+           if (novolocal != null) {
+               localList.add(novolocal)
+           }
+       }
 
-    private fun salvaLocais(){
-        val local = Local(edtNomeLocal.text.toString(),
-            edtEmailPessoa.text.toString(),
-            edtTelPessoa.text.toString(),
-            edtNomeLocal.text.toString(),
-            edtEndLocal.text.toString(),
-            edtTelLocal.text.toString(),
-            edtEmailLocal.text.toString(),
-            edtObsLocal.text.toString(),
-            distancia = "0km")
     }
+
     override fun onResume() {
         super.onResume()
         //chama o carregaLista sempre que a activity for atualizada

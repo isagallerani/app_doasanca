@@ -8,6 +8,6 @@ data class Local (val nome_pessoa: String,
                   val endereco_local: String,
                   val tipo_doacao: String,
                   val telefone_local: String,
-                  val email_local: String? = null,
-                  val obs: String? = null,
+                  val email_local: String? = null, //Campos não obrigatório do formulário
+                  val obs: String? = null, //Campo não obrigatório do formulário
                   val distancia: String)
