@@ -11,7 +11,7 @@ import android.widget.Spinner
 
 
 
-class Formulario : AppCompatActivity() {
+class CadastraLocalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

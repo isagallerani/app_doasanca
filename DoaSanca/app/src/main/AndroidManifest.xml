@@ -17,7 +17,10 @@
         </activity>
         <activity android:name=".ItemListaLocais">
         </activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -26,7 +29,7 @@
         </activity>
         <activity android:name=".Info">
         </activity>
-        <activity android:name=".Formulario">
+        <activity android:name=".CadastraLocalActivity">
         </activity>
     </application>
 

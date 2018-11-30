@@ -1,5 +1,4 @@
 package com.example.bianca.doasanca
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -32,7 +31,7 @@ class Lista_locais : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val cadastraLocal = Intent(this, Formulario::class.java)
+        val cadastraLocal = Intent(this, CadastraLocalActivity::class.java)
         val informacao = Intent (this,Info::class.java)
 
         when (item!!.itemId){
