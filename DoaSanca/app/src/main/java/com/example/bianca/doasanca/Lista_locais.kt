@@ -13,17 +13,17 @@ import kotlinx.android.synthetic.main.activity_lista_locais.*
 
 
 class Lista_locais : AppCompatActivity() {
+    companion object {
+        private const val REQUEST_CADASTRO: Int = 1
+        private const val LISTA = "Lista locais"
+    }
 
     private var localList: MutableList<String> = mutableListOf()
 
-    val cadastraLocal = Intent(this, Formulario::class.java)
-    val informacao = Intent (this,Info::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_locais)
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -34,26 +34,41 @@ class Lista_locais : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val cadastraLocal = Intent(this, CadastraLocalActivity::class.java)
+        val informacao = Intent (this,Info::class.java)
+
         when (item!!.itemId){
-            R.id.menuadd -> startActivity(cadastraLocal)
+            R.id.menuadd -> startActivityForResult(cadastraLocal, 1)
             R.id.menuinfo -> startActivity(informacao)
         }
+
         return super.onOptionsItemSelected(item)
     }
 
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+       if(requestCode== REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
+           val novolocal: String? = data?.getStringExtra(CadastraLocalActivity.NOME_LOCAL)
+           if (novolocal != null) {
+               localList.add(novolocal)
+           }
+       }
 
-    private fun salvaLocais(){
-        val local = Local(edtNomeLocal.text.toString(),
-            edtEmailPessoa.text.toString(),
-            edtTelPessoa.text.toString(),
-            edtNomeLocal.text.toString(),
-            edtEndLocal.text.toString(),
-            edtTelLocal.text.toString(),
-            edtEmailLocal.text.toString(),
-            edtObsLocal.text.toString(),
-            distancia = "0km")
     }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putStringArrayList(LISTA, localList as ArrayList<String>)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null){
+            localList = savedInstanceState.getStringArrayList(LISTA).toMutableList()
+        }
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
+
     override fun onResume() {
         super.onResume()
         //chama o carregaLista sempre que a activity for atualizada

@@ -9,4 +9,5 @@ class ItemListaLocais : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_lista_locais)
     }
+
 }
