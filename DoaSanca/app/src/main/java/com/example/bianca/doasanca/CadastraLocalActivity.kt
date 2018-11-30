@@ -38,7 +38,10 @@ class CadastraLocalActivity : AppCompatActivity() {
     private fun salvaLocais(){
         val local = Local(edtNomeLocal.text.toString(),
             edtEmailPessoa.text.toString(),
-            edtTelPessoa.text.toString(),
+            edtRua.text.toString(),
+            edtNumero.text.toString(),
+            edtComplemento.text.toString(),
+            edtCep.text.toString(),
             edtNomeLocal.text.toString(),
             edtEndLocal.text.toString(),
             edtTelLocal.text.toString(),

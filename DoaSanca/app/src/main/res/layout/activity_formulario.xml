@@ -57,18 +57,51 @@
                 style="@style/FormEditText"
         />
 
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_home"
+                android:contentDescription="@string/rua"/>
+        <EditText
+                android:id="@+id/edtRua"
+                android:hint="@string/rua"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
 
         <ImageView
                 style="@style/FormImage"
-                android:src="@drawable/ic_local_phone"
-                android:contentDescription="@string/telefone_pessoal"/>
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/num"/>
         <EditText
-                android:id="@+id/edtTelPessoa"
-                android:hint="@string/telefone_pessoal"
-                android:inputType="phone"
-                tools:ignore="LabelFor"
-                style="@style/FormEditText"/>
+                android:id="@+id/edtNumero"
+                android:hint="@string/num"
+                android:inputType="number"
+                style="@style/FormEditText"
+        />
 
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/complemento"/>
+        <EditText
+                android:id="@+id/edtComplemento"
+                android:hint="@string/complemento"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/cep"/>
+        <EditText
+                android:id="@+id/edtCep"
+                android:hint="@string/cep"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
 
 
         <TextView
@@ -88,7 +121,7 @@
 
         <ImageView
                 style="@style/FormImage"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/institution"
                 android:contentDescription="@string/nome_local"/>
         <EditText
                 android:id="@+id/edtNomeLocal"

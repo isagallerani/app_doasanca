@@ -21,7 +21,6 @@
     <string name="nome_sobrenome">Nome Sobrenome</string>
     <string name="todo">TODO</string>
     <string name="email_pessoal">Email Pessoal</string>
-    <string name="telefone_pessoal">Telefone Pessoal</string>
     <string name="informacoes_do_local">Informações do Local</string>
     <string name="nome_local">Nome</string>
     <string name="endereco">Endereço</string>
@@ -35,6 +34,10 @@
     <string name="categorias">Categorias</string>
     <string name="informacoes">Informações</string>
     <string name="adicionar_local">Adicionar local</string>
+    <string name="rua">Rua</string>
+    <string name="num">Número</string>
+    <string name="complemento">Complemento</string>
+    <string name="cep">CEP</string>
 
     <string-array name="planets_array">
         <item>Alimento</item>
