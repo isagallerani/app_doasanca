@@ -30,6 +30,7 @@
                     android:layout_height="200dp"
                     android:background="@color/cinza"
                     android:src="@drawable/place"
+                    android:id="@+id/photoLocal"
 
             />
 
