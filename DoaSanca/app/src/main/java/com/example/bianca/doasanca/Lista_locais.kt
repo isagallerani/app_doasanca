@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_formulario.*
+import kotlinx.android.synthetic.main.activity_item_lista_locais.*
 import kotlinx.android.synthetic.main.activity_lista_locais.*
 
 
@@ -24,6 +26,8 @@ class Lista_locais : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_locais)
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -2,17 +2,15 @@ package com.example.bianca.doasanca
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Matrix
-import android.media.ExifInterface
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
-import android.view.View
-import android.widget.*
+import android.support.v7.app.AppCompatActivity
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_formulario.*
 import java.io.File
 
@@ -50,20 +48,16 @@ class CadastraLocalActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_FOTO && resultCode == Activity.RESULT_OK){
 
-            //verifica se o arquivo da foto foi criado
-            val arquivoFoto = File(caminhoFotoAtual)
-            if(arquivoFoto.exists()){
+            GlideApp.with(this)
+                .load(caminhoFotoAtual)
+                .placeholder(R.drawable.place)
+                .centerCrop()
+                .into(photoLocal)
 
-                //cria um bitmap com o arquivo da foto
-                var bitmap = BitmapFactory.decodeFile(arquivoFoto.absolutePath)
-                //ajusta a rotação da foto
-                bitmap = verificaRotacao(bitmap)
-
-                //seta a foto no imageview ajustando seu tamanho
-                photoLocal.setImageBitmap(bitmap)
-                photoLocal.scaleType = ImageView.ScaleType.CENTER_CROP
-
-            }
+           /* Glide.with(mContext)
+                .load(new File(pictureUri.getPath())) // Uri of the picture
+                .transform(new CircleTransform(..))
+            .into(profileAvatar);*/
         }
     }
 
@@ -74,12 +68,18 @@ class CadastraLocalActivity : AppCompatActivity() {
             edtNumero.text.toString(),
             edtComplemento.text.toString(),
             edtCep.text.toString(),
+            edtBairro.text.toString(),
             edtNomeLocal.text.toString(),
             edtEndLocal.text.toString(),
+            edtNumeroLocal.text.toString(),
+            edtComplementoLocal.text.toString(),
+            edtCepLocal.text.toString(),
+            edtBairroLocal.text.toString(),
             edtTelLocal.text.toString(),
             edtEmailLocal.text.toString(),
             edtObsLocal.text.toString(),
             distancia = "0km")
+
         val abrelista = Intent (this, Lista_locais::class.java)
         abrelista.putExtra(NOME_LOCAL, local.nome_local)
         setResult(Activity.RESULT_OK, abrelista)
@@ -108,33 +108,5 @@ class CadastraLocalActivity : AppCompatActivity() {
         return  arquivoFoto
     }
 
-    //verifica e caso necessário ajuta rotação da foto
-    fun verificaRotacao(bitmap: Bitmap):Bitmap{
-        val ei = ExifInterface(caminhoFotoAtual);
-        val orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
-            ExifInterface.ORIENTATION_UNDEFINED);
 
-        return when(orientation) {
-
-            ExifInterface.ORIENTATION_ROTATE_90 ->
-                rotateImage(bitmap, 90F)
-
-            ExifInterface.ORIENTATION_ROTATE_180 ->
-                rotateImage(bitmap, 180F);
-
-            ExifInterface.ORIENTATION_ROTATE_270 ->
-                rotateImage(bitmap, 270F);
-
-            else ->
-                bitmap;
-        }
-    }
-
-    //ajusta rotação da imagem
-    fun rotateImage(source: Bitmap, angle: Float): Bitmap {
-        val matrix = Matrix()
-        matrix.postRotate(angle)
-        return Bitmap.createBitmap(source, 0, 0, source.width, source.height,
-            matrix, true)
-    }
 }

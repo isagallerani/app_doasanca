@@ -12,9 +12,11 @@
 			    android:layout_weight="5"
 			    android:layout_height="wrap_content"
 			    android:text="@string/nome_local"
-			    android:textSize="16sp"
+			    android:textSize="20sp"
 			    android:layout_marginLeft="16dp"
-				android:layout_marginStart="16dp" />
+				android:layout_marginStart="16dp"
+				android:textStyle="bold"
+		/>
 	    <TextView
 			    android:layout_width="0dp"
 				android:layout_height="wrap_content"
@@ -24,6 +26,7 @@
 				android:textColor="@color/darkblue"
 	    />
 	    <ImageButton
+				android:id="@+id/btnVerDetails"
 				android:layout_width="0dp"
 				android:layout_weight="1"
 				android:layout_height="wrap_content"
