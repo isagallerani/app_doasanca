@@ -1,5 +1,6 @@
 package com.example.bianca.doasanca
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +8,10 @@ import android.view.LayoutInflater
 import kotlinx.android.synthetic.main.activity_item_lista_locais.view.*
 
 
-class LocaisAdapter(val locais: List<String>)
+class LocaisAdapter(val context: Context, val locais: List<Local>)
     : RecyclerView.Adapter<LocaisAdapter.ViewHolder>()  {
+
+    var clickListener: ((local:Local, index: Int) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,14 +24,27 @@ class LocaisAdapter(val locais: List<String>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindView(locais[position])
+        holder.bindView(context,locais[position],clickListener)
+    }
+
+    fun setOnItemClickListener(clique: ((local:Local, index: Int) -> Unit)){
+        this.clickListener = clique
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(localNome: String) {
-            itemView.tvNome.text = localNome
+        fun bindView(context:Context, local:Local, clickListener: ((local:Local, index: Int) -> Unit)?) {
+            itemView.tvNome.text = local.nome_local
+
+            if(clickListener != null) {
+                itemView.setOnClickListener {
+                    clickListener.invoke(local, adapterPosition)
+                }
+            }
         }
+
+
+
 
     }
 }

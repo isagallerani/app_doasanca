@@ -1,4 +1,5 @@
 package com.example.bianca.doasanca
+import java.io.Serializable
 
 
 data class Local (val nome_pessoa: String,
@@ -18,4 +19,4 @@ data class Local (val nome_pessoa: String,
                   val telefone_local: String,
                   val email_local: String? = null, //Campos não obrigatório do formulário
                   val obs: String? = null, //Campo não obrigatório do formulário
-                  val distancia: String)
+                  val distancia: String) : Serializable

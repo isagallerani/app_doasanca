@@ -17,7 +17,7 @@ import java.io.File
 
 class CadastraLocalActivity : AppCompatActivity() {
     companion object {
-        public const val NOME_LOCAL:String = "nomeLocal"
+        public const val LOCAL: String = "Local"
         private const val REQUEST_FOTO: Int = 10
     }
     var caminhoFotoAtual: String? = null
@@ -25,6 +25,8 @@ class CadastraLocalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
+
+        //val local: Local? = intent.getSerializableExtra(LOCAL) as Local?
 
         btnFoto.setOnClickListener() {
             Toast.makeText(this, "Insira uma foto do local", Toast.LENGTH_SHORT).show()
@@ -80,8 +82,27 @@ class CadastraLocalActivity : AppCompatActivity() {
             edtObsLocal.text.toString(),
             distancia = "0km")
 
+
+
+        //verifica se os campos obrigatórios estão preenchidos
+         /*
+        if(edtNome.text.isEmpty()){
+            edtNome.requestFocus()
+            edtNome.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+
+        if(edtTelefone.text.isEmpty()){
+            edtTelefone.requestFocus()
+            edtTelefone.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+
+        */
+
+
         val abrelista = Intent (this, Lista_locais::class.java)
-        abrelista.putExtra(NOME_LOCAL, local.nome_local)
+        abrelista.putExtra(LOCAL, local)
         setResult(Activity.RESULT_OK, abrelista)
         finish()
     }

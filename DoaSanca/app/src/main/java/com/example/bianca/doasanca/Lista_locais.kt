@@ -6,12 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_formulario.*
-import kotlinx.android.synthetic.main.activity_item_lista_locais.*
 import kotlinx.android.synthetic.main.activity_lista_locais.*
-
-
 
 
 class Lista_locais : AppCompatActivity() {
@@ -20,7 +15,8 @@ class Lista_locais : AppCompatActivity() {
         private const val LISTA = "Lista locais"
     }
 
-    private var localList: MutableList<String> = mutableListOf()
+    var localList: MutableList<Local> = mutableListOf()
+    var indexLocalClicado: Int = -1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,25 +47,27 @@ class Lista_locais : AppCompatActivity() {
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-       if(requestCode== REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
-           val novolocal: String? = data?.getStringExtra(CadastraLocalActivity.NOME_LOCAL)
-           if (novolocal != null) {
-               localList.add(novolocal)
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode== REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
+           val local: Local? = data?.getSerializableExtra(CadastraLocalActivity.LOCAL) as Local
+           if (local != null) {
+               localList.add(local)
            }
        }
 
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putStringArrayList(LISTA, localList as ArrayList<String>)
         super.onSaveInstanceState(outState)
+        outState?.putSerializable(LISTA, localList as ArrayList<String>)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null){
-            localList = savedInstanceState.getStringArrayList(LISTA).toMutableList()
-        }
         super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState != null){
+            localList = savedInstanceState.getSerializable(LISTA) as MutableList<Local>
+        }
+
     }
 
 
@@ -80,8 +78,15 @@ class Lista_locais : AppCompatActivity() {
     }
 
     fun carregaLista() {
+        val adapter = LocaisAdapter(this, localList)
+
+        adapter.setOnItemClickListener {local, indexLocalClicado ->
+            this.indexLocalClicado = indexLocalClicado
+            val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
+            this.startActivity(abreDetalhes)
+        }
+
         val layoutManager = LinearLayoutManager(this)
-        val adapter = LocaisAdapter(localList)
         rvLocais.adapter = adapter
         rvLocais.layoutManager = layoutManager
     }
