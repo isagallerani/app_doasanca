@@ -27,7 +27,7 @@ data class Local (val nome_pessoa: String,
                   val caminhoFoto: String? = null,
                   val distancia: String? = null,
                   @PrimaryKey(autoGenerate = true)
-                  val id: Int) : Serializable, Parcelable {
+                  val id: Int = 0) : Serializable /*, Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
@@ -48,8 +48,7 @@ data class Local (val nome_pessoa: String,
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readInt()) {
-    }
+            parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nome_pessoa)
@@ -87,4 +86,4 @@ data class Local (val nome_pessoa: String,
             return arrayOfNulls(size)
         }
     }
-}
+} */

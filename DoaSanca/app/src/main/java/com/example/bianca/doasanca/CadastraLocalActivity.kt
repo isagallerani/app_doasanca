@@ -13,28 +13,37 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.bianca.doasanca.R.id.btnCadastrar
+import com.example.bianca.doasanca.R.id.btnFoto
 import kotlinx.android.synthetic.main.activity_formulario.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.File
 
 
 class CadastraLocalActivity : AppCompatActivity() {
+
     companion object {
         public const val LOCAL: String = "Local"
         private const val REQUEST_FOTO: Int = 10
     }
-    var caminhoFoto: String? = null
+
+    var caminhoFoto: String? = null //salva o caminho da foto tirada
+    var local: Local? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
-
-
 
         btnFoto.setOnClickListener() {
             Toast.makeText(this, "Insira uma foto do local", Toast.LENGTH_SHORT).show()
             capturaFoto()
         }
 
+        local = intent.getSerializableExtra(LOCAL) as Local?
+        if(local != null){
+            salvaLocais()
+        }
         btnCadastrar.setOnClickListener() {
             Toast.makeText(this, "Local cadastrado", Toast.LENGTH_SHORT).show()
             salvaLocais()
@@ -155,13 +164,14 @@ class CadastraLocalActivity : AppCompatActivity() {
             return
         }
 
+        val localDao: LocalDao = AppDataBase.getInstance(this).localDao()
+        doAsync {
+            localDao.insert(local!!)
 
-
-
-        val abrelista = Intent (this, Lista_locais::class.java)
-        abrelista.putExtra(LOCAL, local)
-        setResult(Activity.RESULT_OK, abrelista)
-        finish()
+            uiThread {
+                finish()
+            }
+        }
     }
 
     private fun capturaFoto() {

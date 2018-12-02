@@ -2,11 +2,15 @@ package com.example.bianca.doasanca
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.LocaleList
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_lista_locais.*
+import org.jetbrains.anko.activityUiThreadWithContext
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 
 class Lista_locais : AppCompatActivity() {
@@ -16,14 +20,11 @@ class Lista_locais : AppCompatActivity() {
     }
 
     var localList: MutableList<Local> = mutableListOf()
-    var indexLocalClicado: Int = -1
-
+//    var indexLocalClicado: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_locais)
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -32,13 +33,12 @@ class Lista_locais : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val cadastraLocal = Intent(this, CadastraLocalActivity::class.java)
         val informacao = Intent (this,Info::class.java)
 
         when (item!!.itemId){
-            R.id.menuadd -> startActivityForResult(cadastraLocal, 1)
+            R.id.menuadd -> startActivity(cadastraLocal)
             R.id.menuinfo -> startActivity(informacao)
         }
 
@@ -46,7 +46,7 @@ class Lista_locais : AppCompatActivity() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+ /*   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode== REQUEST_CADASTRO && resultCode == Activity.RESULT_OK){
            val local: Local? = data?.getSerializableExtra(CadastraLocalActivity.LOCAL) as Local
@@ -55,7 +55,7 @@ class Lista_locais : AppCompatActivity() {
            }
        }
 
-    }
+    } */
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
@@ -79,19 +79,24 @@ class Lista_locais : AppCompatActivity() {
 
     fun carregaLista() {
 
+        val localDao = AppDataBase.getInstance(this).localDao()
+        doAsync {
+            localList = localDao.getAll() as MutableList<Local>
 
+            activityUiThreadWithContext {
+                val adapter = LocaisAdapter(this, localList)
 
-        val adapter = LocaisAdapter(this, localList)
+                adapter.setOnItemClickListener {local, indexLocalClicado ->
+                    //            this.indexLocalClicado = indexLocalClicado
+                    val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
+                    abreDetalhes.putExtra(DetalhesLocalActivity.LOCAL, local) // confirmar
+                    startActivity(abreDetalhes)
+                }
 
-        adapter.setOnItemClickListener {local, indexLocalClicado ->
-            this.indexLocalClicado = indexLocalClicado
-            val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
-            abreDetalhes.putExtra(DetalhesLocalActivity.LOCAL, local) // confirmar
-            this.startActivity(abreDetalhes)
+                val layoutManager = LinearLayoutManager(this)
+                rvLocais.adapter = adapter
+                rvLocais.layoutManager = layoutManager
+            }
         }
-
-        val layoutManager = LinearLayoutManager(this)
-        rvLocais.adapter = adapter
-        rvLocais.layoutManager = layoutManager
     }
 }
