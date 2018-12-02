@@ -47,7 +47,8 @@ data class Local (val nome_pessoa: String,
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString()) {
+            parcel.readString(),
+            parcel.readInt()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -70,6 +71,7 @@ data class Local (val nome_pessoa: String,
         parcel.writeString(obs)
         parcel.writeString(caminhoFoto)
         parcel.writeString(distancia)
+        parcel.writeInt(id)
     }
 
     override fun describeContents(): Int {

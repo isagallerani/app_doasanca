@@ -78,6 +78,9 @@ class Lista_locais : AppCompatActivity() {
     }
 
     fun carregaLista() {
+
+
+
         val adapter = LocaisAdapter(this, localList)
 
         adapter.setOnItemClickListener {local, indexLocalClicado ->
