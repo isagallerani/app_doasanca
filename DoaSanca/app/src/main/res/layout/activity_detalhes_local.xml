@@ -33,6 +33,7 @@
                 android:textSize="44sp"
                 android:textColor="@color/black"
                 android:layout_columnSpan="2"
+                android:layout_gravity="center"
 
         />
         <TextView
