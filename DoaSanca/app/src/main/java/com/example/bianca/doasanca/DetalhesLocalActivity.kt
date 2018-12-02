@@ -1,9 +1,11 @@
 package com.example.bianca.doasanca
 
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalhes_local.*
-import kotlinx.android.synthetic.main.activity_formulario.*
 
 class DetalhesLocalActivity : AppCompatActivity() {
     companion object {
@@ -20,7 +22,19 @@ class DetalhesLocalActivity : AppCompatActivity() {
         if(local != null){
             carregaDados(local)
         }
+
+        map.setOnClickListener {
+            mostraNoMapa()
+        }
     }
+
+    private fun mostraNoMapa() {
+        val mostrarNoMapa = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q= ${detailsAddress.text}%2C+${detailsNumber.text}%2C+${detailsBairro.text}%2C+SãoCarlos%2C+SãoPaulo"))
+        if (mostrarNoMapa.resolveActivity(packageManager) != null)
+            startActivity(mostrarNoMapa)
+        else
+            Toast.makeText(this, "Não há como exibir no mapa", Toast.LENGTH_SHORT).show()
+        }
 
     private fun carregaDados(local: Local) {
         detailsName.setText(local.nome_local)
