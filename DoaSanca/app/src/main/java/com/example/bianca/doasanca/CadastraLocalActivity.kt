@@ -68,19 +68,19 @@ class CadastraLocalActivity : AppCompatActivity() {
 
     private fun salvaLocais(){
         val local = Local(
-            edtNomeLocal.text.toString(),
+            edtNomePessoa.text.toString(),
             edtEmailPessoa.text.toString(),
             edtRua.text.toString(),
             edtNumero.text.toString(),
             edtComplemento.text.toString(),
-            edtCep.text.toString(),
             edtBairro.text.toString(),
+            edtCep.text.toString(),
             edtNomeLocal.text.toString(),
             edtEndLocal.text.toString(),
             edtNumeroLocal.text.toString(),
             edtComplementoLocal.text.toString(),
-            edtCepLocal.text.toString(),
             edtBairroLocal.text.toString(),
+            edtCepLocal.text.toString(),
             selectDonation.selectedItem.toString(),
             edtTelLocal.text.toString(),
             edtEmailLocal.text.toString(),
@@ -88,9 +88,6 @@ class CadastraLocalActivity : AppCompatActivity() {
             caminhoFoto,
             distancia="0km"
         )
-
-
-
 
         //verifica se os campos obrigatórios estão preenchidos
 

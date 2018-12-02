@@ -117,7 +117,7 @@
 
         <ImageView
             style="@style/DetailsImage"
-            android:src="@drawable/ic_person"
+            android:src="@drawable/ic_location_on"
             android:contentDescription="@string/endereco"/>
         <TextView
                 android:id="@+id/detailsBairro"
@@ -126,7 +126,7 @@
         />
         <ImageView
                 style="@style/DetailsImage"
-                android:src="@drawable/ic_camera"
+                android:src="@drawable/ic_location_on"
                 android:contentDescription="@string/endereco"/>
         <TextView
                 android:id="@+id/detailsCep"
