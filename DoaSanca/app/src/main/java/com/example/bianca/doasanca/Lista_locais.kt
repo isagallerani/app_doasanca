@@ -83,6 +83,7 @@ class Lista_locais : AppCompatActivity() {
         adapter.setOnItemClickListener {local, indexLocalClicado ->
             this.indexLocalClicado = indexLocalClicado
             val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
+            abreDetalhes.putExtra(DetalhesLocalActivity.LOCAL, local) // confirmar
             this.startActivity(abreDetalhes)
         }
 

@@ -8,6 +8,8 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
@@ -20,13 +22,13 @@ class CadastraLocalActivity : AppCompatActivity() {
         public const val LOCAL: String = "Local"
         private const val REQUEST_FOTO: Int = 10
     }
-    var caminhoFotoAtual: String? = null
+    var caminhoFoto: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
 
-        //val local: Local? = intent.getSerializableExtra(LOCAL) as Local?
+
 
         btnFoto.setOnClickListener() {
             Toast.makeText(this, "Insira uma foto do local", Toast.LENGTH_SHORT).show()
@@ -45,13 +47,14 @@ class CadastraLocalActivity : AppCompatActivity() {
         //Adapter for spinner
         selectDonation.adapter = adapter
 
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_FOTO && resultCode == Activity.RESULT_OK){
 
             GlideApp.with(this)
-                .load(caminhoFotoAtual)
+                .load(caminhoFoto)
                 .placeholder(R.drawable.place)
                 .centerCrop()
                 .into(photoLocal)
@@ -64,7 +67,8 @@ class CadastraLocalActivity : AppCompatActivity() {
     }
 
     private fun salvaLocais(){
-        val local = Local(edtNomeLocal.text.toString(),
+        val local = Local(
+            edtNomeLocal.text.toString(),
             edtEmailPessoa.text.toString(),
             edtRua.text.toString(),
             edtNumero.text.toString(),
@@ -77,28 +81,84 @@ class CadastraLocalActivity : AppCompatActivity() {
             edtComplementoLocal.text.toString(),
             edtCepLocal.text.toString(),
             edtBairroLocal.text.toString(),
+            selectDonation.selectedItem.toString(),
             edtTelLocal.text.toString(),
             edtEmailLocal.text.toString(),
             edtObsLocal.text.toString(),
-            distancia = "0km")
+            caminhoFoto,
+            distancia="0km"
+        )
+
 
 
 
         //verifica se os campos obrigatórios estão preenchidos
-         /*
-        if(edtNome.text.isEmpty()){
-            edtNome.requestFocus()
-            edtNome.setError(getString(R.string.campo_obrigatorio))
+
+        if(edtNomePessoa.text.isEmpty()){
+            edtNomePessoa.requestFocus()
+            edtNomePessoa.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+        if(edtEmailPessoa.text.isEmpty()){
+            edtEmailPessoa.requestFocus()
+            edtEmailPessoa.setError(getString(R.string.campo_obrigatorio))
             return
         }
 
-        if(edtTelefone.text.isEmpty()){
-            edtTelefone.requestFocus()
-            edtTelefone.setError(getString(R.string.campo_obrigatorio))
+        if(edtEndLocal.text.isEmpty()){
+            edtEndLocal.requestFocus()
+            edtEndLocal.setError(getString(R.string.campo_obrigatorio))
             return
         }
 
-        */
+        if(edtNumero.text.isEmpty()){
+            edtNumero.requestFocus()
+            edtNumero.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+        if(edtCep.text.isEmpty()){
+            edtCep.requestFocus()
+            edtCep.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+        if(edtBairro.text.isEmpty()){
+            edtBairro.requestFocus()
+            edtBairro.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+
+         if(edtNomeLocal.text.isEmpty()){
+             edtNomeLocal.requestFocus()
+             edtNomeLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+         if(edtEndLocal.text.isEmpty()){
+             edtEndLocal.requestFocus()
+             edtEndLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+         if(edtNumeroLocal.text.isEmpty()){
+             edtNumeroLocal.requestFocus()
+             edtNumeroLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+         if(edtCepLocal.text.isEmpty()){
+            edtCepLocal.requestFocus()
+            edtCepLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+        if(edtBairroLocal.text.isEmpty()){
+            edtBairroLocal.requestFocus()
+            edtBairroLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+        if(edtTelLocal.text.isEmpty()){
+            edtTelLocal.requestFocus()
+            edtTelLocal.setError(getString(R.string.campo_obrigatorio))
+            return
+        }
+
+
 
 
         val abrelista = Intent (this, Lista_locais::class.java)
@@ -124,7 +184,7 @@ class CadastraLocalActivity : AppCompatActivity() {
         val diretorio = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         val arquivoFoto = File.createTempFile(nomeArquivo, ".jpg", diretorio)
 
-        caminhoFotoAtual = arquivoFoto.absolutePath
+        caminhoFoto = arquivoFoto.absolutePath
 
         return  arquivoFoto
     }
