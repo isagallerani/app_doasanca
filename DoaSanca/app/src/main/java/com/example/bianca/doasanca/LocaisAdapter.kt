@@ -12,7 +12,7 @@ class LocaisAdapter(val context: Context, val locais: List<Local>)
     : RecyclerView.Adapter<LocaisAdapter.ViewHolder>()  {
 
     var clickListener: ((local:Local, index: Int) -> Unit)? = null
-
+   // var clickListener ((index: Int -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_lista_locais, parent, false)

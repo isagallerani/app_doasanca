@@ -39,11 +39,11 @@ class CadastraLocalActivity : AppCompatActivity() {
             Toast.makeText(this, "Insira uma foto do local", Toast.LENGTH_SHORT).show()
             capturaFoto()
         }
-
-        local = intent.getSerializableExtra(LOCAL) as Local?
-        if(local != null){
-            salvaLocais()
-        }
+//
+//        local = intent.getSerializableExtra(LOCAL) as Local?
+//        if(local != null){
+//            salvaLocais()
+//        }
         btnCadastrar.setOnClickListener() {
             Toast.makeText(this, "Local cadastrado", Toast.LENGTH_SHORT).show()
             salvaLocais()
@@ -75,30 +75,10 @@ class CadastraLocalActivity : AppCompatActivity() {
         }
     }
 
-    private fun salvaLocais(){
-        val local = Local(
-            edtNomePessoa.text.toString(),
-            edtEmailPessoa.text.toString(),
-            edtRua.text.toString(),
-            edtNumero.text.toString(),
-            edtComplemento.text.toString(),
-            edtBairro.text.toString(),
-            edtCep.text.toString(),
-            edtNomeLocal.text.toString(),
-            edtEndLocal.text.toString(),
-            edtNumeroLocal.text.toString(),
-            edtComplementoLocal.text.toString(),
-            edtBairroLocal.text.toString(),
-            edtCepLocal.text.toString(),
-            selectDonation.selectedItem.toString(),
-            edtTelLocal.text.toString(),
-            edtEmailLocal.text.toString(),
-            edtObsLocal.text.toString(),
-            caminhoFoto,
-            distancia="0km"
-        )
 
+    private fun salvaLocais(){
         //verifica se os campos obrigatórios estão preenchidos
+        val distanciacalculada= "0km"
 
         if(edtNomePessoa.text.isEmpty()){
             edtNomePessoa.requestFocus()
@@ -133,22 +113,22 @@ class CadastraLocalActivity : AppCompatActivity() {
             return
         }
 
-         if(edtNomeLocal.text.isEmpty()){
-             edtNomeLocal.requestFocus()
-             edtNomeLocal.setError(getString(R.string.campo_obrigatorio))
+        if(edtNomeLocal.text.isEmpty()){
+            edtNomeLocal.requestFocus()
+            edtNomeLocal.setError(getString(R.string.campo_obrigatorio))
             return
         }
-         if(edtEndLocal.text.isEmpty()){
-             edtEndLocal.requestFocus()
-             edtEndLocal.setError(getString(R.string.campo_obrigatorio))
+        if(edtEndLocal.text.isEmpty()){
+            edtEndLocal.requestFocus()
+            edtEndLocal.setError(getString(R.string.campo_obrigatorio))
             return
         }
-         if(edtNumeroLocal.text.isEmpty()){
-             edtNumeroLocal.requestFocus()
-             edtNumeroLocal.setError(getString(R.string.campo_obrigatorio))
+        if(edtNumeroLocal.text.isEmpty()){
+            edtNumeroLocal.requestFocus()
+            edtNumeroLocal.setError(getString(R.string.campo_obrigatorio))
             return
         }
-         if(edtCepLocal.text.isEmpty()){
+        if(edtCepLocal.text.isEmpty()){
             edtCepLocal.requestFocus()
             edtCepLocal.setError(getString(R.string.campo_obrigatorio))
             return
@@ -164,10 +144,55 @@ class CadastraLocalActivity : AppCompatActivity() {
             return
         }
 
+        if(local==null) {
+            local = Local(
+                    edtNomePessoa.text.toString(),
+                    edtEmailPessoa.text.toString(),
+                    edtRua.text.toString(),
+                    edtNumero.text.toString(),
+                    edtComplemento.text.toString(),
+                    edtBairro.text.toString(),
+                    edtCep.text.toString(),
+                    edtNomeLocal.text.toString(),
+                    edtEndLocal.text.toString(),
+                    edtNumeroLocal.text.toString(),
+                    edtComplementoLocal.text.toString(),
+                    edtBairroLocal.text.toString(),
+                    edtCepLocal.text.toString(),
+                    selectDonation.selectedItem.toString(),
+                    edtTelLocal.text.toString(),
+                    edtEmailLocal.text.toString(),
+                    edtObsLocal.text.toString(),
+                    caminhoFoto,
+                    distancia = "0km")
+        }else{
+
+            local?.nome_pessoa = edtNomePessoa.text.toString()
+            local?.email_pessoa=edtEmailPessoa.text.toString()
+            local?.rua=edtRua.text.toString()
+            local?.num_casa=edtNumero.text.toString()
+            local?.complemento=edtComplemento.text.toString()
+            local?.bairro=edtBairro.text.toString()
+            local?.cep=edtCep.text.toString()
+            local?.nome_local=edtNomeLocal.text.toString()
+            local?.rua_local=edtEndLocal.text.toString()
+            local?.num_local=edtNumeroLocal.text.toString()
+            local?.complemento_local=edtComplementoLocal.text.toString()
+            local?.bairro_local=edtBairroLocal.text.toString()
+            local?.cep_local=edtCepLocal.text.toString()
+            local?.tipo_doacao=selectDonation.selectedItem.toString()
+            local?.telefone_local=edtTelLocal.text.toString()
+            local?.email_local=edtEmailLocal.text.toString()
+            local?.obs=edtObsLocal.text.toString()
+            local?.caminhoFoto= caminhoFoto
+            local?.distancia = distanciacalculada} //MUDAR A DISTANCIA
+
+
+
+
         val localDao: LocalDao = AppDataBase.getInstance(this).localDao()
         doAsync {
             localDao.insert(local!!)
-
             uiThread {
                 finish()
             }

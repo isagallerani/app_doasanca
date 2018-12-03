@@ -11,16 +11,16 @@ class DetalhesLocalActivity : AppCompatActivity() {
     companion object {
         public const val LOCAL: String = "Local"
     }
-
+    var local: Local? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_local)
 
-        val local: Local? = intent.getSerializableExtra(DetalhesLocalActivity.LOCAL) as Local?
+        local = intent.getSerializableExtra(LOCAL) as Local?
         if(local != null){
-            carregaDados(local)
+            carregaDados()
         }
 
         map.setOnClickListener {
@@ -36,21 +36,21 @@ class DetalhesLocalActivity : AppCompatActivity() {
             Toast.makeText(this, "Não há como exibir no mapa", Toast.LENGTH_SHORT).show()
         }
 
-    private fun carregaDados(local: Local) {
-        detailsName.setText(local.nome_local)
-        detailsAddress.setText(local.rua_local)
-        detailsNumber.setText(local.num_local)
-        detailsComplemento.setText(local.complemento_local)
-        detailsBairro.setText(local.bairro_local)
-        detailsCep.setText(local.cep_local)
-        detailsType.setText(local.tipo_doacao)
-        detailsPhone.setText(local.telefone_local)
-        detailsEmail.setText(local.email_local)
-        detailsObs.setText(local.obs)
+    private fun carregaDados() {
+        detailsName.setText(local?.nome_local)
+        detailsAddress.setText(local?.rua_local)
+        detailsNumber.setText(local?.num_local)
+        detailsComplemento.setText(local?.complemento_local)
+        detailsBairro.setText(local?.bairro_local)
+        detailsCep.setText(local?.cep_local)
+        detailsType.setText(local?.tipo_doacao)
+        detailsPhone.setText(local?.telefone_local)
+        detailsEmail.setText(local?.email_local)
+        detailsObs.setText(local?.obs)
 
 
         GlideApp.with(this)
-            .load(local.caminhoFoto)
+            .load(local?.caminhoFoto)
             .placeholder(R.drawable.ic_person)
             .centerCrop()
             .into(detailsImg)

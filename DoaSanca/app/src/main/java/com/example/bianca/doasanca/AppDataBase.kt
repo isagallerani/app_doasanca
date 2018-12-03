@@ -10,7 +10,7 @@ public abstract class AppDataBase: RoomDatabase() {
 
     companion object {
         //constante nome do BD
-        private val DB_NAME = "local.dao"
+        private val DB_NAME = "local.db"
         //constante instancia do appdatabase
         private var instance:AppDataBase? = null
 

@@ -1,8 +1,6 @@
 package com.example.bianca.doasanca
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.LocaleList
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
@@ -11,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_lista_locais.*
 import org.jetbrains.anko.activityUiThreadWithContext
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-
+import java.util.*
 
 class Lista_locais : AppCompatActivity() {
     companion object {
