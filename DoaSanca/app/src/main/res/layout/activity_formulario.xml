@@ -13,11 +13,179 @@
     <requestFocus/>
 
     <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".CadastraLocalActivity"
-            android:paddingBottom="16dp"
-            android:columnCount="2">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".CadastraLocalActivity"
+        android:paddingBottom="16dp"
+        android:columnCount="2">
+
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_columnSpan="2">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/cinza"
+                    android:src="@drawable/place"
+                    android:id="@+id/photoLocal"
+
+            />
+
+            <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btnFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="6dp"
+                    android:src="@drawable/ic_camera"
+                    app:fabSize="normal"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/green_water"
+                    app:borderWidth="0dp"
+            />
+
+        </FrameLayout>
+
+        <TextView
+                android:text="@string/informacoes_do_local"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_columnSpan="2"
+        />
+
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/institution"
+                android:contentDescription="@string/nome_local"/>
+        <EditText
+                android:id="@+id/edtNomeLocal"
+                android:hint="@string/nome_local"
+                android:inputType="textPersonName|textCapWords"
+                tools:ignore="LabelFor"
+                style="@style/FormEditText" />
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/endereco"/>
+        <EditText
+                android:id="@+id/edtEndLocal"
+                android:hint="@string/endereco"
+                android:inputType="textEmailAddress"
+                style="@style/FormEditText"
+        />
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/num"/>
+        <EditText
+                android:id="@+id/edtNumeroLocal"
+                android:hint="@string/num"
+                android:inputType="number"
+                style="@style/FormEditText"
+        />
+
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/complemento"/>
+        <EditText
+                android:id="@+id/edtComplementoLocal"
+                android:hint="@string/complemento"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
+
+        <ImageView
+            style="@style/FormImage"
+            android:src="@drawable/ic_location_on"
+            android:contentDescription="@string/bairro"/>
+        <EditText
+                android:id="@+id/edtBairroLocal"
+                android:hint="@string/bairro"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/cep"/>
+        <EditText
+                android:id="@+id/edtCepLocal"
+                android:hint="@string/cep"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_favorite"
+                android:contentDescription="@string/tipo_de_doacao"/>
+
+        <Spinner
+                android:id="@+id/selectDonation"
+                android:layout_height="40dp"
+                android:spinnerMode="dropdown"
+                android:hint="@string/tipo_de_doacao"
+                tools:ignore="LabelFor"
+                style="@style/FormEditText"/>
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_local_phone"/>
+        <EditText
+                android:id="@+id/edtTelLocal"
+                android:hint="@string/telefone"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                tools:ignore="LabelFor"
+                style="@style/FormEditText" />
+
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_mail"
+                android:contentDescription="@string/email"
+        />
+        <EditText
+                android:id="@+id/edtEmailLocal"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textIsSelectable="true"
+                style="@style/FormEditText"
+        />
+
+
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_border_color"
+                android:contentDescription="@string/observacoes"/>
+        <EditText
+                android:id="@+id/edtObsLocal"
+                android:hint="@string/observacoes"
+                android:gravity="top"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName|textCapWords|textMultiLine"
+                tools:ignore="LabelFor"
+                style="@style/FormEditText"/>
 
 
         <TextView
@@ -95,6 +263,17 @@
         <ImageView
                 style="@style/FormImage"
                 android:src="@drawable/ic_location_on"
+                android:contentDescription="@string/bairro"/>
+        <EditText
+                android:id="@+id/edtBairro"
+                android:hint="@string/bairro"
+                android:inputType="textPostalAddress"
+                style="@style/FormEditText"
+        />
+
+        <ImageView
+                style="@style/FormImage"
+                android:src="@drawable/ic_location_on"
                 android:contentDescription="@string/cep"/>
         <EditText
                 android:id="@+id/edtCep"
@@ -102,103 +281,6 @@
                 android:inputType="textPostalAddress"
                 style="@style/FormEditText"
         />
-
-
-        <TextView
-                android:text="@string/informacoes_do_local"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_columnSpan="2"
-        />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/institution"
-                android:contentDescription="@string/nome_local"/>
-        <EditText
-                android:id="@+id/edtNomeLocal"
-                android:hint="@string/nome_local"
-                android:inputType="textPersonName|textCapWords"
-                tools:ignore="LabelFor"
-                style="@style/FormEditText" />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_location_on"
-                android:contentDescription="@string/endereco"/>
-        <EditText
-                android:id="@+id/edtEndLocal"
-                android:hint="@string/endereco"
-                android:inputType="textEmailAddress"
-                style="@style/FormEditText"
-        />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_favorite"
-                android:contentDescription="@string/tipo_de_doacao"/>
-
-        <Spinner
-                android:id="@+id/selectDonation"
-                android:layout_height="40dp"
-                android:spinnerMode="dropdown"
-                android:hint="@string/tipo_de_doacao"
-                tools:ignore="LabelFor"
-                style="@style/FormEditText"/>
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_local_phone"/>
-        <EditText
-                android:id="@+id/edtTelLocal"
-                android:hint="@string/telefone"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName|textCapWords"
-                tools:ignore="LabelFor"
-                style="@style/FormEditText" />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_mail"
-                android:contentDescription="@string/email"
-                />
-        <EditText
-                android:id="@+id/edtEmailLocal"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:textIsSelectable="true"
-                style="@style/FormEditText"
-        />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_border_color"
-                android:contentDescription="@string/observacoes"/>
-        <EditText
-                android:id="@+id/edtObsLocal"
-                android:hint="@string/observacoes"
-                android:gravity="top"
-                android:imeOptions="actionDone"
-                android:inputType="textPersonName|textCapWords|textMultiLine"
-                tools:ignore="LabelFor"
-                style="@style/FormEditText"/>
 
 
 

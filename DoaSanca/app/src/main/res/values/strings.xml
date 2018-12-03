@@ -38,6 +38,8 @@
     <string name="num">Número</string>
     <string name="complemento">Complemento</string>
     <string name="cep">CEP</string>
+    <string name="bairro">Bairro</string>
+    <string name="campo_obrigatorio">Campo Obrigatório</string>
 
     <string-array name="planets_array">
         <item>Alimento</item>

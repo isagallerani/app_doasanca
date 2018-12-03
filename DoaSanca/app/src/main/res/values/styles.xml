@@ -9,16 +9,6 @@
     </style>
 
     <!-- Estilo do EditText do formulario de adicionar novo local -->
-    <style name="FormEditText">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">8dp</item>
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
-        <item name="android:imeOptions">actionNext</item>
-        <item name="android:layout_gravity">fill_horizontal</item>
-    </style>
-
     <style name="FormImage">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -26,4 +16,35 @@
         <item name="android:layout_gravity">right</item>
         <item name="android:layout_marginLeft">16dp</item>
     </style>
+
+    <style name="DetailsImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="FormEditText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="DetailsText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
 </resources>
