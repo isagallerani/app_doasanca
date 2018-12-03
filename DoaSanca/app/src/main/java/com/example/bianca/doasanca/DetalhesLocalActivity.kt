@@ -51,7 +51,7 @@ class DetalhesLocalActivity : AppCompatActivity() {
 
         GlideApp.with(this)
             .load(local?.caminhoFoto)
-            .placeholder(R.drawable.ic_person)
+            .placeholder(R.drawable.place)
             .centerCrop()
             .into(detailsImg)
     }
