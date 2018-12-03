@@ -1,6 +1,7 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.entities
 
 import android.arch.persistence.room.*
+import com.example.bianca.doasanca.entities.Local
 
 @Dao
 interface LocalDao {

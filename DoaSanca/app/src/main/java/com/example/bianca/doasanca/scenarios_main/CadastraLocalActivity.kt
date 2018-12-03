@@ -1,20 +1,19 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.scenarios_main
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.Toast
-import com.example.bianca.doasanca.R.id.btnCadastrar
-import com.example.bianca.doasanca.R.id.btnFoto
+import com.example.bianca.doasanca.BuildConfig
+import com.example.bianca.doasanca.GlideApp
+import com.example.bianca.doasanca.R
+import com.example.bianca.doasanca.entities.Local
+import com.example.bianca.doasanca.entities.LocalDao
 import kotlinx.android.synthetic.main.activity_formulario.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -146,25 +145,26 @@ class CadastraLocalActivity : AppCompatActivity() {
 
         if(local==null) {
             local = Local(
-                    edtNomePessoa.text.toString(),
-                    edtEmailPessoa.text.toString(),
-                    edtRua.text.toString(),
-                    edtNumero.text.toString(),
-                    edtComplemento.text.toString(),
-                    edtBairro.text.toString(),
-                    edtCep.text.toString(),
-                    edtNomeLocal.text.toString(),
-                    edtEndLocal.text.toString(),
-                    edtNumeroLocal.text.toString(),
-                    edtComplementoLocal.text.toString(),
-                    edtBairroLocal.text.toString(),
-                    edtCepLocal.text.toString(),
-                    selectDonation.selectedItem.toString(),
-                    edtTelLocal.text.toString(),
-                    edtEmailLocal.text.toString(),
-                    edtObsLocal.text.toString(),
-                    caminhoFoto,
-                    distancia = "0km")
+                edtNomePessoa.text.toString(),
+                edtEmailPessoa.text.toString(),
+                edtRua.text.toString(),
+                edtNumero.text.toString(),
+                edtComplemento.text.toString(),
+                edtBairro.text.toString(),
+                edtCep.text.toString(),
+                edtNomeLocal.text.toString(),
+                edtEndLocal.text.toString(),
+                edtNumeroLocal.text.toString(),
+                edtComplementoLocal.text.toString(),
+                edtBairroLocal.text.toString(),
+                edtCepLocal.text.toString(),
+                selectDonation.selectedItem.toString(),
+                edtTelLocal.text.toString(),
+                edtEmailLocal.text.toString(),
+                edtObsLocal.text.toString(),
+                caminhoFoto,
+                distancia = "0km"
+            )
         }else{
 
             local?.nome_pessoa = edtNomePessoa.text.toString()
@@ -205,7 +205,9 @@ class CadastraLocalActivity : AppCompatActivity() {
             val arquivoFoto = montaArquivoFoto()
             val uriFoto = FileProvider.getUriForFile(this, "${BuildConfig.APPLICATION_ID}.fileprovider", arquivoFoto)
             capturaFoto.putExtra(MediaStore.EXTRA_OUTPUT, uriFoto)
-            startActivityForResult(capturaFoto, REQUEST_FOTO)
+            startActivityForResult(capturaFoto,
+                REQUEST_FOTO
+            )
         } else
             Toast.makeText(this, "Não é possível tirar uma foto", Toast.LENGTH_SHORT).show()
     }

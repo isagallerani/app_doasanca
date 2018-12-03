@@ -1,14 +1,15 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.scenarios_main
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import com.example.bianca.doasanca.R
+import com.example.bianca.doasanca.entities.Local
 import kotlinx.android.synthetic.main.activity_lista_locais.*
 import org.jetbrains.anko.activityUiThreadWithContext
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 import java.util.*
 
 class Lista_locais : AppCompatActivity() {
@@ -33,7 +34,7 @@ class Lista_locais : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val cadastraLocal = Intent(this, CadastraLocalActivity::class.java)
-        val informacao = Intent (this,Info::class.java)
+        val informacao = Intent (this, Info::class.java)
 
         when (item!!.itemId){
             R.id.menuadd -> startActivity(cadastraLocal)
@@ -42,7 +43,6 @@ class Lista_locais : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
 
  /*   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -67,7 +67,6 @@ class Lista_locais : AppCompatActivity() {
         }
 
     }
-
 
     override fun onResume() {
         super.onResume()
