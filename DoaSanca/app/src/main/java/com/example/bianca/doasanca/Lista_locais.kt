@@ -1,15 +1,22 @@
 package com.example.bianca.doasanca
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
+import com.example.bianca.doasanca.R.id.menubuscar
 import kotlinx.android.synthetic.main.activity_lista_locais.*
 import org.jetbrains.anko.activityUiThreadWithContext
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
+import android.support.v4.view.MenuItemCompat.getActionView
+
+
 
 class Lista_locais : AppCompatActivity() {
     companion object {
@@ -27,6 +34,13 @@ class Lista_locais : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_listalocal,menu)
+        // Associate searchable configuration with the SearchView
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        (menu?.findItem(R.id.menubuscar)?.actionView as SearchView).apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        }
+
+
 
         return super.onCreateOptionsMenu(menu)
     }

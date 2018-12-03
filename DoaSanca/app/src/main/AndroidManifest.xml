@@ -29,6 +29,10 @@
         <activity
                 android:name=".Lista_locais"
                 android:label="Locais">
+            <meta-data
+                    android:name="android.app.searchable"
+                    android:resource="@xml/searchable"/>
+
         </activity>
         <activity android:name=".ItemListaLocais">
         </activity>
@@ -46,6 +50,11 @@
         <activity android:name=".CadastraLocalActivity">
         </activity>
         <activity android:name=".DetalhesLocalActivity">
+        </activity>
+        <activity android:name=".SearchResultsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
         </activity>
     </application>
 
