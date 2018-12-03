@@ -76,8 +76,6 @@
                 tools:ignore="LabelFor"
                 style="@style/FormEditText" />
 
-
-
         <ImageView
                 style="@style/FormImage"
                 android:src="@drawable/ic_location_on"
