@@ -21,7 +21,7 @@ import org.jetbrains.anko.uiThread
 import java.io.File
 
 
-class CadastraLocalActivity : AppCompatActivity() {
+class CadastraLocalActivity : AppCompatActivity(), CadastraLocalContract.View {
 
     companion object {
         public const val LOCAL: String = "Local"
@@ -31,6 +31,7 @@ class CadastraLocalActivity : AppCompatActivity() {
     var caminhoFoto: String? = null //salva o caminho da foto tirada
     var local: Local? = null
 
+    val presenter: CadastraLocalContract.Presenter = CadastraLocalPresenter(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
@@ -188,15 +189,15 @@ class CadastraLocalActivity : AppCompatActivity() {
             local?.distancia = distanciacalculada} //MUDAR A DISTANCIA
 
 
-
-
-        val localDao: LocalDao = AppDataBase.getInstance(this).localDao()
-        doAsync {
-            localDao.insert(local!!)
-            uiThread {
-                finish()
-            }
+        local?.let { local ->
+            presenter.onSalvaLocal(this, local)
         }
+
+    }
+
+    override fun salvoComSucesso(){
+        Toast.makeText(this, getString(R.string.local_salvo), Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     private fun capturaFoto() {

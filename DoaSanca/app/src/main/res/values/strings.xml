@@ -40,6 +40,7 @@
     <string name="cep">CEP</string>
     <string name="bairro">Bairro</string>
     <string name="campo_obrigatorio">Campo Obrigatório</string>
+    <string name="local_salvo">Local salvo com sucesso</string>
 
     <string-array name="planets_array">
         <item>Alimento</item>

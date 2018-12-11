@@ -11,7 +11,7 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
 
-class Lista_locais : AppCompatActivity() {
+class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
     companion object {
         private const val REQUEST_CADASTRO: Int = 1
         private const val LISTA = "Lista locais"
@@ -19,6 +19,7 @@ class Lista_locais : AppCompatActivity() {
 
     var localList: MutableList<Local> = mutableListOf()
 //    var indexLocalClicado: Int = -1
+    val presenter: ListaLocalContract.Presenter = ListaLocalPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,29 +73,24 @@ class Lista_locais : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //chama o carregaLista sempre que a activity for atualizada
-        carregaLista()
+        presenter.onAtualizaLista(this)
     }
 
-    fun carregaLista() {
+    override fun exibeLista(lista: MutableList<Local>) {
+        localList = lista
+        val adapter = LocaisAdapter(this, localList)
 
-        val localDao = AppDataBase.getInstance(this).localDao()
-        doAsync {
-            localList = localDao.getAll() as MutableList<Local>
-
-            activityUiThreadWithContext {
-                val adapter = LocaisAdapter(this, localList)
-
-                adapter.setOnItemClickListener {local, indexLocalClicado ->
-                    //            this.indexLocalClicado = indexLocalClicado
-                    val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
-                    abreDetalhes.putExtra(DetalhesLocalActivity.LOCAL, local) // confirmar
-                    startActivity(abreDetalhes)
-                }
-
-                val layoutManager = LinearLayoutManager(this)
-                rvLocais.adapter = adapter
-                rvLocais.layoutManager = layoutManager
-            }
+        adapter.setOnItemClickListener {local, indexLocalClicado ->
+            //            this.indexLocalClicado = indexLocalClicado
+            val abreDetalhes = Intent(this, DetalhesLocalActivity::class.java)
+            abreDetalhes.putExtra(DetalhesLocalActivity.LOCAL, local) // confirmar
+            startActivity(abreDetalhes)
         }
+
+        val layoutManager = LinearLayoutManager(this)
+        rvLocais.adapter = adapter
+        rvLocais.layoutManager = layoutManager
     }
 }
+
+

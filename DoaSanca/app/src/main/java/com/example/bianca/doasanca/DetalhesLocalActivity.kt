@@ -54,5 +54,6 @@ class DetalhesLocalActivity : AppCompatActivity() {
             .placeholder(R.drawable.place)
             .centerCrop()
             .into(detailsImg)
+
     }
 }
