@@ -1,10 +1,13 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.cenario.cenario_detalhes_local
 
 import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.bianca.doasanca.GlideApp
+import com.example.bianca.doasanca.R
+import com.example.bianca.doasanca.entidades.Local
 import kotlinx.android.synthetic.main.activity_detalhes_local.*
 
 class DetalhesLocalActivity : AppCompatActivity() {

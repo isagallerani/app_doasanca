@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lista_locais">
+    tools:context=".cenario.cenario_lista_local.Lista_locais">
 
 
     <!-- Estava utilizando o componente errado.

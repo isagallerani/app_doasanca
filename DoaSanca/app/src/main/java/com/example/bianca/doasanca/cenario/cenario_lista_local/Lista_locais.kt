@@ -1,14 +1,16 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.cenario.cenario_lista_local
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import com.example.bianca.doasanca.*
+import com.example.bianca.doasanca.cenario.cenario_cadastra_local.CadastraLocalActivity
+import com.example.bianca.doasanca.cenario.cenario_detalhes_local.DetalhesLocalActivity
+import com.example.bianca.doasanca.cenario.cenario_info_local.Info
+import com.example.bianca.doasanca.entidades.Local
 import kotlinx.android.synthetic.main.activity_lista_locais.*
-import org.jetbrains.anko.activityUiThreadWithContext
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 import java.util.*
 
 class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
@@ -19,7 +21,8 @@ class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
 
     var localList: MutableList<Local> = mutableListOf()
 //    var indexLocalClicado: Int = -1
-    val presenter: ListaLocalContract.Presenter = ListaLocalPresenter(this)
+    val presenter: ListaLocalContract.Presenter =
+    ListaLocalPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val cadastraLocal = Intent(this, CadastraLocalActivity::class.java)
-        val informacao = Intent (this,Info::class.java)
+        val informacao = Intent (this, Info::class.java)
 
         when (item!!.itemId){
             R.id.menuadd -> startActivity(cadastraLocal)

@@ -1,4 +1,4 @@
-package com.example.bianca.doasanca
+package com.example.bianca.doasanca.entidades
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable

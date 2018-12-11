@@ -27,13 +27,13 @@
         </provider>
 
         <activity
-                android:name=".Lista_locais"
+                android:name="com.example.bianca.doasanca.cenario.cenario_lista_local.Lista_locais"
                 android:label="Locais">
         </activity>
-        <activity android:name=".ItemListaLocais">
+        <activity android:name="com.example.bianca.doasanca.cenario.cenario_lista_local.ItemListaLocais">
         </activity>
         <activity
-                android:name=".SplashScreenActivity"
+                android:name="com.example.bianca.doasanca.cenario.cenario_splash_screen.SplashScreenActivity"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -41,11 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Info">
+        <activity android:name="com.example.bianca.doasanca.cenario.cenario_info_local.Info">
         </activity>
-        <activity android:name=".CadastraLocalActivity">
+        <activity android:name="com.example.bianca.doasanca.cenario.cenario_cadastra_local.CadastraLocalActivity">
         </activity>
-        <activity android:name=".DetalhesLocalActivity">
+        <activity android:name="com.example.bianca.doasanca.cenario.cenario_detalhes_local.DetalhesLocalActivity">
         </activity>
     </application>
 
