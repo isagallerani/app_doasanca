@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_item_lista_locais.view.*
 
 
@@ -35,6 +36,16 @@ class LocaisAdapter(val context: Context, val locais: List<Local>)
 
         fun bindView(context:Context, local:Local, clickListener: ((local:Local, index: Int) -> Unit)?) {
             itemView.tvNome.text = local.nome_local
+            val thumbnail = GlideApp.with(context)
+                .load(R.drawable.ic_person)
+                //.apply(RequestOptions().circleCrop())
+
+            GlideApp.with(context)
+                .load(local.caminhoFoto)
+                .thumbnail(thumbnail)
+                .centerCrop()
+                //.apply(RequestOptions().circleCrop())
+                .into(itemView.imgFoto)
 
             if(clickListener != null) {
                 itemView.setOnClickListener {
