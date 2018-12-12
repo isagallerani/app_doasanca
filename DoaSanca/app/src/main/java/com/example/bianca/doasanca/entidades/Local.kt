@@ -21,6 +21,6 @@ data class Local (val name: String,
                   val distancia: String? = null,
                   val CreatedAt: String,
                   val UpdatedAt: String,
-                  val DeletedAt? = null,
+                  val DeletedAt: String? = null,
                   @PrimaryKey(autoGenerate = true)
                   val ID: Int = 0) : Serializable
