@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.bianca.doasanca.*
 import com.example.bianca.doasanca.cenario.cenario_cadastra_local.CadastraLocalActivity
 import com.example.bianca.doasanca.cenario.cenario_detalhes_local.DetalhesLocalActivity
@@ -14,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_lista_locais.*
 import java.util.*
 
 class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
+
+
+
     companion object {
         private const val REQUEST_CADASTRO: Int = 1
         private const val LISTA = "Lista locais"
@@ -21,12 +25,13 @@ class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
 
     var localList: MutableList<Local> = mutableListOf()
 //    var indexLocalClicado: Int = -1
-    val presenter: ListaLocalContract.Presenter =
-    ListaLocalPresenter(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_locais)
+        val presenter: ListaLocalContract.Presenter = ListaLocalPresenter(this)
+        presenter.onLoadList()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -76,12 +81,11 @@ class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
     override fun onResume() {
         super.onResume()
         //chama o carregaLista sempre que a activity for atualizada
-        presenter.onAtualizaLista(this)
     }
 
-    override fun exibeLista(lista: MutableList<Local>) {
-        localList = lista
-        val adapter = LocaisAdapter(this, localList)
+    override fun showList(locais: List<Local>) {
+        //localList = lista
+        val adapter = LocaisAdapter(this, locais)
 
         adapter.setOnItemClickListener {local, indexLocalClicado ->
             //            this.indexLocalClicado = indexLocalClicado
@@ -94,6 +98,12 @@ class Lista_locais : AppCompatActivity(), ListaLocalContract.View {
         rvLocais.adapter = adapter
         rvLocais.layoutManager = layoutManager
     }
+
+    override fun showMessage(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+
 }
 
 

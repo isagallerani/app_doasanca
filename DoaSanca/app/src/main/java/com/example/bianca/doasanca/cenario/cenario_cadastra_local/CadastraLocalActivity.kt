@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.bianca.doasanca.BuildConfig
-import com.example.bianca.doasanca.GlideApp
 import com.example.bianca.doasanca.entidades.Local
 import com.example.bianca.doasanca.R
+import com.example.bianca.doasanca.utilitarios.GlideApp
 import kotlinx.android.synthetic.main.activity_formulario.*
 import java.io.File
 
@@ -147,13 +147,12 @@ class CadastraLocalActivity : AppCompatActivity(),
             )
         }else{
 
-            local?.name = edtNomePessoa.text.toString()
-            local?.email=edtEmailPessoa.text.toString()
+            local?.name_pessoa = edtNomePessoa.text.toString()
+            local?.email_pessoa=edtEmailPessoa.text.toString()
             local?.name=edtNomeLocal.text.toString()
             local?.street=edtEndLocal.text.toString()
             local?.number=edtNumeroLocal.text.toString()
             local?.opt=edtComplementoLocal.text.toString()
-            local?.bairro_local=edtBairroLocal.text.toString()
             local?.zipcode=edtCepLocal.text.toString()
             local?.type=selectDonation.selectedItem.toString()
             local?.phone=edtTelLocal.text.toString()

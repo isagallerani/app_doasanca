@@ -5,10 +5,11 @@ import com.example.bianca.doasanca.entidades.Local
 
 interface ListaLocalContract {
     interface View{
-        fun exibeLista(lista: MutableList<Local>)
+        fun showMessage(msg: String)
+        fun showList(locais: List<Local>)
     }
 
     interface Presenter {
-        fun onAtualizaLista(context: Context)
+        fun onLoadList()
     }
 }

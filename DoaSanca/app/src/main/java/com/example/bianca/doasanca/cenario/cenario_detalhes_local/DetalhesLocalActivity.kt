@@ -5,9 +5,9 @@ import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.bianca.doasanca.GlideApp
 import com.example.bianca.doasanca.R
 import com.example.bianca.doasanca.entidades.Local
+import com.example.bianca.doasanca.utilitarios.GlideApp
 import kotlinx.android.synthetic.main.activity_detalhes_local.*
 
 class DetalhesLocalActivity : AppCompatActivity() {
@@ -44,7 +44,6 @@ class DetalhesLocalActivity : AppCompatActivity() {
         detailsAddress.setText(local?.street)
         detailsNumber.setText(local?.number)
         detailsComplemento.setText(local?.opt)
-        detailsBairro.setText(local?.bairro_local)
         detailsCep.setText(local?.zipcode)
         detailsType.setText(local?.type)
         detailsPhone.setText(local?.phone)
