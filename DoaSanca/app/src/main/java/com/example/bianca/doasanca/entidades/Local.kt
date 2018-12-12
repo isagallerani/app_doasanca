@@ -4,24 +4,23 @@ import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable
 
 @Entity
-data class Local (var nome_pessoa: String,
-                  var email_pessoa: String,
-                  var rua: String,
-                  var num_casa: String,
-                  var complemento: String? = null,
-                  var bairro: String,
-                  var cep: String,
-                  var nome_local: String,
-                  var rua_local: String,
-                  var num_local: String,
-                  var complemento_local: String? = null,
-                  var bairro_local: String,
-                  var cep_local: String,
-                  var tipo_doacao: String,
-                  var telefone_local: String,
-                  var email_local: String? = null, //Campos não obrigatório do formulário
-                  var obs: String? = null, //Campo não obrigatório do formulário
-                  var caminhoFoto: String? = null,
-                  var distancia: String? = null,
+data class Local (val name: String,
+                  val email: String,
+                  val latitude: String,
+                  val longitude: String,
+                  val name: String,
+                  val street: String,
+                  val number: String,
+                  val opt: String? = null,
+                  val zipcode: String,
+                  val type: String,
+                  val phone: String,
+                  val email: String? = null, //Campos não obrigatório do formulário
+                  val comment: String? = null, //Campo não obrigatório do formulário
+                  val pic_url: String? = null,
+                  val distancia: String? = null,
+                  val CreatedAt: String,
+                  val UpdatedAt: String,
+                  val DeletedAt? = null,
                   @PrimaryKey(autoGenerate = true)
-                  val id: Int = 0) : Serializable
+                  val ID: Int = 0) : Serializable

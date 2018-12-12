@@ -96,21 +96,6 @@ class CadastraLocalActivity : AppCompatActivity(),
             return
         }
 
-        if(edtNumero.text.isEmpty()){
-            edtNumero.requestFocus()
-            edtNumero.setError(getString(R.string.campo_obrigatorio))
-            return
-        }
-        if(edtCep.text.isEmpty()){
-            edtCep.requestFocus()
-            edtCep.setError(getString(R.string.campo_obrigatorio))
-            return
-        }
-        if(edtBairro.text.isEmpty()){
-            edtBairro.requestFocus()
-            edtBairro.setError(getString(R.string.campo_obrigatorio))
-            return
-        }
 
         if(edtNomeLocal.text.isEmpty()){
             edtNomeLocal.requestFocus()
@@ -147,11 +132,6 @@ class CadastraLocalActivity : AppCompatActivity(),
             local = Local(
                 edtNomePessoa.text.toString(),
                 edtEmailPessoa.text.toString(),
-                edtRua.text.toString(),
-                edtNumero.text.toString(),
-                edtComplemento.text.toString(),
-                edtBairro.text.toString(),
-                edtCep.text.toString(),
                 edtNomeLocal.text.toString(),
                 edtEndLocal.text.toString(),
                 edtNumeroLocal.text.toString(),
@@ -167,25 +147,21 @@ class CadastraLocalActivity : AppCompatActivity(),
             )
         }else{
 
-            local?.nome_pessoa = edtNomePessoa.text.toString()
-            local?.email_pessoa=edtEmailPessoa.text.toString()
-            local?.rua=edtRua.text.toString()
-            local?.num_casa=edtNumero.text.toString()
-            local?.complemento=edtComplemento.text.toString()
-            local?.bairro=edtBairro.text.toString()
-            local?.cep=edtCep.text.toString()
-            local?.nome_local=edtNomeLocal.text.toString()
-            local?.rua_local=edtEndLocal.text.toString()
-            local?.num_local=edtNumeroLocal.text.toString()
-            local?.complemento_local=edtComplementoLocal.text.toString()
+            local?.name = edtNomePessoa.text.toString()
+            local?.email=edtEmailPessoa.text.toString()
+            local?.name=edtNomeLocal.text.toString()
+            local?.street=edtEndLocal.text.toString()
+            local?.number=edtNumeroLocal.text.toString()
+            local?.opt=edtComplementoLocal.text.toString()
             local?.bairro_local=edtBairroLocal.text.toString()
-            local?.cep_local=edtCepLocal.text.toString()
-            local?.tipo_doacao=selectDonation.selectedItem.toString()
-            local?.telefone_local=edtTelLocal.text.toString()
-            local?.email_local=edtEmailLocal.text.toString()
-            local?.obs=edtObsLocal.text.toString()
-            local?.caminhoFoto= caminhoFoto
+            local?.zipcode=edtCepLocal.text.toString()
+            local?.type=selectDonation.selectedItem.toString()
+            local?.phone=edtTelLocal.text.toString()
+            local?.email=edtEmailLocal.text.toString()
+            local?.comment=edtObsLocal.text.toString()
+            local?.pic_url= caminhoFoto
             local?.distancia = distanciacalculada} //MUDAR A DISTANCIA
+
 
 
         local?.let { local ->

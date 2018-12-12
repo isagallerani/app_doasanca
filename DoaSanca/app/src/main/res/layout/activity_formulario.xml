@@ -225,65 +225,6 @@
                 style="@style/FormEditText"
         />
 
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_home"
-                android:contentDescription="@string/rua"/>
-        <EditText
-                android:id="@+id/edtRua"
-                android:hint="@string/rua"
-                android:inputType="textPostalAddress"
-                style="@style/FormEditText"
-        />
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_location_on"
-                android:contentDescription="@string/num"/>
-        <EditText
-                android:id="@+id/edtNumero"
-                android:hint="@string/num"
-                android:inputType="number"
-                style="@style/FormEditText"
-        />
-
-
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_location_on"
-                android:contentDescription="@string/complemento"/>
-        <EditText
-                android:id="@+id/edtComplemento"
-                android:hint="@string/complemento"
-                android:inputType="textPostalAddress"
-                style="@style/FormEditText"
-        />
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_location_on"
-                android:contentDescription="@string/bairro"/>
-        <EditText
-                android:id="@+id/edtBairro"
-                android:hint="@string/bairro"
-                android:inputType="textPostalAddress"
-                style="@style/FormEditText"
-        />
-
-        <ImageView
-                style="@style/FormImage"
-                android:src="@drawable/ic_location_on"
-                android:contentDescription="@string/cep"/>
-        <EditText
-                android:id="@+id/edtCep"
-                android:hint="@string/cep"
-                android:inputType="textPostalAddress"
-                style="@style/FormEditText"
-        />
-
-
-
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

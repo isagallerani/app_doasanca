@@ -40,20 +40,20 @@ class DetalhesLocalActivity : AppCompatActivity() {
         }
 
     private fun carregaDados() {
-        detailsName.setText(local?.nome_local)
-        detailsAddress.setText(local?.rua_local)
-        detailsNumber.setText(local?.num_local)
-        detailsComplemento.setText(local?.complemento_local)
+        detailsName.setText(local?.name)
+        detailsAddress.setText(local?.street)
+        detailsNumber.setText(local?.number)
+        detailsComplemento.setText(local?.opt)
         detailsBairro.setText(local?.bairro_local)
-        detailsCep.setText(local?.cep_local)
-        detailsType.setText(local?.tipo_doacao)
-        detailsPhone.setText(local?.telefone_local)
-        detailsEmail.setText(local?.email_local)
-        detailsObs.setText(local?.obs)
+        detailsCep.setText(local?.zipcode)
+        detailsType.setText(local?.type)
+        detailsPhone.setText(local?.phone)
+        detailsEmail.setText(local?.email)
+        detailsObs.setText(local?.comment)
 
 
         GlideApp.with(this)
-            .load(local?.caminhoFoto)
+            .load(local?.pic_url)
             .placeholder(R.drawable.place)
             .centerCrop()
             .into(detailsImg)
