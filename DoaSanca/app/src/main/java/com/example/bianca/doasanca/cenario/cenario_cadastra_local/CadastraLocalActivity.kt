@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.bianca.doasanca.BuildConfig
-import com.example.bianca.doasanca.GlideApp
 import com.example.bianca.doasanca.entidades.Local
 import com.example.bianca.doasanca.R
+import com.example.bianca.doasanca.utilitarios.GlideApp
 import kotlinx.android.synthetic.main.activity_formulario.*
 import java.io.File
 

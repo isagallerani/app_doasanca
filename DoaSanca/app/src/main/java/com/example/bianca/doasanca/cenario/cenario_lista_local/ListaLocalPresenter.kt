@@ -8,7 +8,7 @@ import org.jetbrains.anko.uiThread
 
 class ListaLocalPresenter (val view : ListaLocalContract.View) :
     ListaLocalContract.Presenter {
-    override fun onAtualizaLista(context: Context){
+    override fun onAtualizaLista(context: Context) {
         val localDao = AppDataBase.getInstance(context).localDao()
         doAsync {
             val localList = localDao.getAll() as MutableList<Local>
@@ -16,4 +16,5 @@ class ListaLocalPresenter (val view : ListaLocalContract.View) :
                 view.exibeLista(localList)
             }
         }
+    }
 }
