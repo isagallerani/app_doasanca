@@ -22,7 +22,7 @@
     <string name="todo">TODO</string>
     <string name="email_pessoal">Email Pessoal</string>
     <string name="informacoes_do_local">Informações do Local</string>
-    <string name="nome_local">Nome</string>
+    <string name="nome_local">NOME DO LOCAL</string>
     <string name="endereco">Endereço</string>
     <string name="tipo_de_doacao">Tipo de Doação</string>
     <string name="telefone">Telefone</string>
@@ -40,6 +40,7 @@
     <string name="cep">CEP</string>
     <string name="bairro">Bairro</string>
     <string name="campo_obrigatorio">Campo Obrigatório</string>
+    <string name="saiba_mais">SAIBA MAIS</string>
 
     <string-array name="planets_array">
         <item>Alimento</item>
